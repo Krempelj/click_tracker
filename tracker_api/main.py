@@ -1,8 +1,14 @@
 import webapp2
 from admin_api.models import *
 
-
 REDIRECT_LINK = 'http://outfit7.com'
+
+
+class Hello(webapp2.RequestHandler):
+    def get(self):
+        self.response.out.write('<h1>Click Tracker</h1>')
+        self.response.out.write('<br>')
+        self.response.out.write('<a href="https://github.com/Krempelj/click_tracker">GitHub</a>')
 
 
 class Tracker(webapp2.RequestHandler):
@@ -39,5 +45,6 @@ class Tracker(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication(
         [
+            webapp2.Route(r'/', methods=['GET'], handler=Hello),
             webapp2.Route(r'/tracker', methods=['GET'], handler=Tracker)
         ], config={}, debug=True)
