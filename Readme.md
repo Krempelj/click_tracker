@@ -46,9 +46,14 @@ Make sure you set
 Examples
 **************************************************
 DESC: insert or update a campaign
+
 METHOD: admin.campaign.insert [POST]
+
 PATH: https://click-tracker-1301.appspot.com/_ah/api/admin/v1/campaign
+
 INPUT:
+
+```json
 {
     "id": "TalkingTomCat",
     "redirect_url": "https://www.youtube.com/user/TalkingTomCat",
@@ -59,8 +64,10 @@ INPUT:
         ]
     
 }
-
+```
 OUTPUT:
+
+```json
 {
   "platforms": [
     {
@@ -86,15 +93,20 @@ OUTPUT:
   "kind": "admin#campaignItem",
   "etag": "\"9ffFBMl9VjqXYgiVeXwUEuoxdJk/-kZE8H6Kfnr7blkDeBY6AHQkXzA\""
 }
+```
 **************************************************
 DESC: get a specific campaign info
+
 METHOD: admin.campaign.get [GET]
+
 PATH: https://click-tracker-1301.appspot.com/_ah/api/admin/v1/campaign/TalkingTomCat
+
 	  https://click-tracker-1301.appspot.com/_ah/api/admin/v1/campaign/{campaign_id}
+	  
 INPUT:
-none
 
 OUTPUT:
+```json
 {
   "platforms": [
     {
@@ -120,27 +132,39 @@ OUTPUT:
   "kind": "admin#campaignItem",
   "etag": "\"9ffFBMl9VjqXYgiVeXwUEuoxdJk/-kZE8H6Kfnr7blkDeBY6AHQkXzA\""
 }
+```
 **************************************************
 DESC: delete a specific campaign
+
 METHOD: admin.campaign.delete [DELETE]
+
 PATH: https://click-tracker-1301.appspot.com/_ah/api/admin/v1/campaign/TalkingTomCat
+
 	  https://click-tracker-1301.appspot.com/_ah/api/admin/v1/campaign/{campaign_id}
+	  
 INPUT:
 
 OUTPUT:
+```json
 {
   "id": "TalkingTomCat",
   "kind": "admin#campaignItem",
   "etag": "\"9ffFBMl9VjqXYgiVeXwUEuoxdJk/Bvl8sh8ebIaMkZZxAUpPB3eNVAE\""
 }
+```
 **************************************************
 DESC: get campaigns on a specific platform
+
 METHOD:  admin.campaign.get_on_platform [GET]
+
 PATH: https://click-tracker-1301.appspot.com/_ah/api/admin/v1/campaign/on/Android
+
 	  https://click-tracker-1301.appspot.com/_ah/api/admin/v1/campaign/on/{Platform}
+	  
 INPUT:
 
 OUTPUT:
+```json
 {
   "campaigns": [
     {
@@ -193,28 +217,40 @@ OUTPUT:
   "kind": "admin#campaignItem",
   "etag": "\"9ffFBMl9VjqXYgiVeXwUEuoxdJk/-u1h8dsZeLJxjtt9qQiktVElo2I\""
 }
+```
 **************************************************
 DESC: get all clicks on a platform
+
 METHOD: admin.campaign.clicks_on_platform [GET]
+
 PATH: https://click-tracker-1301.appspot.com/_ah/api/admin/v1/campaign/clicks/Android
+
 	  https://click-tracker-1301.appspot.com/_ah/api/admin/v1/campaign/clicks/{platform}
+	  
 INPUT:
 
 OUTPUT:
+```json
 {
   "platform": "Android",
   "clicks": "2",
   "kind": "admin#campaignItem",
   "etag": "\"9ffFBMl9VjqXYgiVeXwUEuoxdJk/-eeNvc6TKEu1K67dDgYUxbo6khM\""
 }
+```
 **************************************************
 DESC: get all campaign clicks on a platform
+
 METHOD:  admin.campaign.campaign_clicks_on_platform [GET]
+
 PATH: https://click-tracker-1301.appspot.com/_ah/api/admin/v1/campaign/clicks/TalkingAngelaCat/Android
+
 	  https://click-tracker-1301.appspot.com/_ah/api/admin/v1/campaign/clicks/{campaign_id}/{platform}
+	  
 INPUT:
 
 OUTPUT:
+```json
 {
   "platform": "Android",
   "enabled": true,
@@ -223,14 +259,20 @@ OUTPUT:
   "kind": "admin#campaignItem",
   "etag": "\"9ffFBMl9VjqXYgiVeXwUEuoxdJk/IzxWSX-07IGLEbSUz1UMyFv88V8\""
 }
+```
 **************************************************
 Tracker API
 **************************************************
 DESC: required parameters: 'id' and 'platform'
+
 METHOD: [GET]
+
 PATH: http://click-tracker-1301.appspot.com/tracker?id=TalkingAngelaCat&platform=Android
+
 	  http://click-tracker-1301.appspot.com/tracker?id={campaign_id}&platform={platform}
+	  
 INPUT:
 
 OUTPUT:
+
 Redirects the user appropriately.
